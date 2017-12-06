@@ -1,4 +1,4 @@
-# Arduino-ScopeArt-1
+# Arduino Scope XY Test
 Using an Arduino to draw simple Oscilloscope XY art using PWM
 
 This Arduino project is a modification of the original found at
