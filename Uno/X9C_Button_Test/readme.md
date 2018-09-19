@@ -7,3 +7,5 @@ move the wiper up/down by one position, ten positions, or set directly to min/mi
 
 A save function is added to the ten position up button to test that the pot can store the wiper position
 when requested, allowing that wiper setting to be restored upon power on.
+
+Note that in order to get the sketch operating as expected, two functions need to be modified from the original library mentioned above.  These changes are noted in the comments at the top of the sketch file X9C_Button_Test.ino
