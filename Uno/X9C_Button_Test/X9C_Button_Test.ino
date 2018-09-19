@@ -9,8 +9,8 @@
        Requires the X9C potentiometer control library by Phil Bowles
        https://github.com/philbowles/Arduino-X9C
        
-       Note:  Changes required to the original X9C.cpp file from GitHub
-       (as of Last commit Jun 8 2017)
+       Note:  Changes required to the original X9C.cpp file from the above GitHub
+       library (as of Last commit Jun 8 2017)
        The following 2 functions should be replaced with this code:
        
        void X9C::_deselectAndSave(){
