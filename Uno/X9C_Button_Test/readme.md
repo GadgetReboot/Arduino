@@ -9,3 +9,6 @@ A save function is added to the ten position up button to test that the pot can 
 when requested, allowing that wiper setting to be restored upon power on.
 
 Note that in order to get the sketch operating as expected, two functions need to be modified from the original library mentioned above.  These changes are noted in the comments at the top of the sketch file X9C_Button_Test.ino
+
+X9C_Button_Test.ino is the main test sketch
+X9C_555_Osc_Control.ino is a modification to turn the buttons into sound effect generators when the X9C is used to replace a frequency control pot of a 555 oscillator.
