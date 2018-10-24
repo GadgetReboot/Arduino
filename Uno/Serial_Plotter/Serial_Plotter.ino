@@ -34,9 +34,9 @@ void setup()   {
 void loop() {
 
   // show temperature °C
-  //tempSensor.requestTemperatures();                           // request temperature sample from sensor on the one wire bus
-  //Serial.print(tempSensor.getTempC(thermometerAddress));      // serial debug output of temperature sensor data
-  //Serial.print(" ");                                          // multiple plot data points are separated by space, comma, or \t
+  tempSensor.requestTemperatures();                           // request temperature sample from sensor on the one wire bus
+  Serial.print(tempSensor.getTempC(thermometerAddress));      // serial debug output of temperature sensor data
+  Serial.print(" ");                                          // multiple plot data points are separated by space, comma, or \t
 
   // show analog 0 input               
   //Serial.print(analogRead(A0));                               // read the analog input and send the data to the serial plotter
