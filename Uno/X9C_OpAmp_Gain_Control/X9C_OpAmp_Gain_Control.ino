@@ -53,7 +53,7 @@
 
 #define buttonPotUp5    5       // button to inc pot by 10
 #define buttonPotDn5    6       // button to dec pot by 10
-#define buttonAutoScale 7       // button to auto-adjust pot until gain is max
+#define buttonAutoScale 7       // button to allow serial plotter auto-scaling or to use a fixed scale
 
 
 // X9C wiring:  pin 3[High Terminal] -- R1 -- pin 5[Wiper] -- R2 -- pin 6[Low Terminal]
