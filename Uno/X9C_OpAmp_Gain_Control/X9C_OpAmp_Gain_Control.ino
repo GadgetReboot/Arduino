@@ -135,10 +135,10 @@ void loop() {
     Serial.print(" ");
   }
 
-  Serial.print(analogRead(signalIn));    // plot straight line to set a visual reference line
+  Serial.print(analogRead(signalIn));    // plot analog signal from op amp with gain
   Serial.print(" ");
 
-  Serial.print(analogRead(debugIn));     // plot straight line to set a visual reference line
+  Serial.print(analogRead(debugIn));     // plot signal generator analog in
   Serial.print(" ");
 
   Serial.println();
