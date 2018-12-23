@@ -9,9 +9,9 @@ hd44780_pinIO lcd(rs, en, db4, db5, db6, db7);  // declare lcd object for pin co
 
 void setup()
 {
-	lcd.begin(16, 2);
-	lcd.print("Hello, World!");
- lcd.print(char(226));
+  lcd.begin(16, 2);
+  lcd.print("Hello, World!");
+  lcd.print(char(226));
 }
 
 void loop() {}
