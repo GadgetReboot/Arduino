@@ -9,7 +9,7 @@ hd44780_I2Cexp lcd; // declare lcd object: auto locate & auto config expander ch
 void setup()
 {
   lcd.begin(16, 2);
-	lcd.print("Hello, World!");
+  lcd.print("Hello, World!");
 }
 
 void loop() {}
