@@ -195,14 +195,13 @@ void drawThermometer(void)
 {
   // draw thermometer tube outline
   tft.fillRoundRect((thermXTop - (thermTubeWidth / 2)), thermYTop - (thermTubeWidth / 2) + 1,
-                    thermTubeWidth, thermHeight, thermTubeWidth / 2, BLACK);                                 // tube
-  tft.fillCircle(thermXTop, thermYTop, (thermTubeWidth / 2) - 0.5, BLACK);                                    // rounded top
-  tft.fillCircle(thermXTop, (thermYTop + thermHeight), (thermBulbRadius), BLACK);                             // bottom bulb
+                    thermTubeWidth, thermHeight, thermTubeWidth / 2, BLACK);                             // tube
+  tft.fillCircle(thermXTop, (thermYTop + thermHeight), (thermBulbRadius), BLACK);                        // bottom bulb
 
   // fill white thermometer tube inside
-  tft.fillRect((thermXTop - (thermTubeWidth / 2) + 3), thermYTop, (thermTubeWidth - 6), thermHeight, WHITE);  // tube
-  tft.fillCircle(thermXTop, thermYTop, (thermTubeWidth / 2) - 3.5, WHITE);                                    // rounded top
-  tft.fillCircle(thermXTop, (thermYTop + thermHeight), (thermBulbRadius - 3), WHITE);                         // bottom bulb
+  tft.fillRoundRect((thermXTop - (thermTubeWidth / 2) + 3), thermYTop - (thermTubeWidth / 2) + 5, 
+                    (thermTubeWidth - 6), thermHeight, (thermTubeWidth / 2) - 0.5, WHITE);               // tube
+  tft.fillCircle(thermXTop, (thermYTop + thermHeight), (thermBulbRadius - 3), WHITE);                    // bottom bulb
 
   // fill red thermometer bulb
   tft.fillCircle(thermXTop, (thermYTop + thermHeight), (thermBulbRadius - 6), RED);
