@@ -1,4 +1,5 @@
-// Using the SHT21 Digital Temperature/Humidity sensor with an MCUFriend 3.5" 480x320 TFT LCD
+// Using the UART to read Temperature/Humidity data sent from another device
+// and display on an MCUFriend 3.5" 480x320 TFT LCD
 //
 // Temperature graphical display inspired by the sketch/project:
 //     Bar Graph Digital Thermometer Using TFT LCD Touch Screen (Arduino Based)
