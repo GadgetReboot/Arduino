@@ -44,8 +44,8 @@ byte curState  = 0;      // current joystick reading to evaluate against last re
 bool cw        = false;  // detected a clockwise rotation
 bool ccw       = false;  // detected a counter-clockwise rotation
 bool outputOn  = false;  // a cw or ccw output is currently being asserted (controlled by a timer)
-unsigned long outputOnTime = 5;  // duration to assert outputs, in mS.
-unsigned long outputTimer  = 0;  // timer for asserting outputs for required time lapse
+unsigned long outputOnTime = 100; // duration to assert outputs, in mS. keyboard encoder needed a long press time
+unsigned long outputTimer  = 0;   // timer for asserting outputs for required time lapse
 
 #if Debug
 byte debugCount = 0;     // for debug purposes, how many rotations detected since power on?
