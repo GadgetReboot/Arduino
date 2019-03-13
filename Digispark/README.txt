@@ -1,1 +1,1 @@
-# Arduino
+# Digispark ATTiny85
