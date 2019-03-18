@@ -15,12 +15,12 @@
 //   http://www.engbedded.com/fusecalc/
 
 
-#define  RST     13    // Output to level shifter for !RESET from transistor
 #define  SCI     12    // Target Clock Input
 #define  SDO     11    // Target Data Output
 #define  SII     10    // Target Instruction Input
 #define  SDI      9    // Target Data Input
 #define  VCC      8    // Target VCC
+#define  RST      7    // Output to control 12V prog voltage to target Reset pin
 
 // required for accessing device fuse locations
 #define  LFUSE  0x646C
