@@ -119,7 +119,8 @@ void loop() {
   */
 
   // Future enhancement:  monitor VCC with analog input and follow protocol more directly
-  //                      for now, 400uS works to allow VCC to rise on Digispark board
+  //                      for now, 100uS works to allow VCC to rise on Digispark board
+  //                      powered by a high side P-ch FET switch
 
   // power up target device in high voltage programming mode
   pinMode(SDO, OUTPUT);    // Set SDO to output
@@ -128,7 +129,7 @@ void loop() {
   digitalWrite(SDO, LOW);
   digitalWrite(RST, LOW);  // 12v Off
   digitalWrite(VCC, HIGH); // Vcc On
-  delayMicroseconds(400);  // Ensure VCC has reached at least 1.1v before applying 12v to reset
+  delayMicroseconds(100);  // Ensure VCC has reached at least 1.1v before applying 12v to reset
   digitalWrite(RST, HIGH); // 12v On
   delayMicroseconds(10);
   pinMode(SDO, INPUT);     // Set SDO to input
