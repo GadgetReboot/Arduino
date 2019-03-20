@@ -91,6 +91,36 @@ void loop() {
       readFuseOnly = true;
   }
 
+  /*
+    From ATTiny85 Data Sheet
+    ------------------------
+    20.7.1 Enter High-voltage Serial Programming Mode
+
+    The following algorithm puts the device in High-voltage Serial Programming mode:
+    1. Set Prog_enable pins listed in Table 20-14 to “000”, RESET pin and VCC to 0V.
+    2. Apply 4.5 - 5.5V between VCC and GND. Ensure that VCC reaches at least 1.8V within the next 20 µs.
+    3. Wait 20 - 60 µs, and apply 11.5 - 12.5V to RESET.
+    4. Keep the Prog_enable pins unchanged for at least 10 µs after the High-voltage has been applied to
+    ensure the Prog_enable Signature has been latched.
+    5. Release the Prog_enable[2] pin to avoid drive contention on the Prog_enable[2]/SDO pin.
+    6. Wait at least 300 µs before giving any serial instructions on SDI/SII.
+    7. Exit Programming mode by power the device down or by bringing RESET pin to 0V.
+
+    If the rise time of the VCC is unable to fulfill the requirements listed above, the following alternative algorithm can be
+    used:
+    1. Set Prog_enable pins listed in Table 20-14 to “000”, RESET pin and VCC to 0V.
+    2. Apply 4.5 - 5.5V between VCC and GND.
+    3. Monitor VCC, and as soon as VCC reaches 0.9 - 1.1V, apply 11.5 - 12.5V to RESET.
+    4. Keep the Prog_enable pins unchanged for at least 10 µs after the High-voltage has been applied to
+    ensure the Prog_enable Signature has been latched.
+    5. Release the Prog_enable[2] pin to avoid drive contention on the Prog_enable[2]/SDO pin.
+    6. Wait until VCC actually reaches 4.5 - 5.5V before giving any serial instructions on SDI/SII.
+    7. Exit Programming mode by power the device down or by bringing RESET pin to 0V
+  */
+
+  // Future enhancement:  monitor VCC with analog input and follow protocol more directly
+  //                      for now, 400uS works to allow VCC to rise on Digispark board
+
   // power up target device in high voltage programming mode
   pinMode(SDO, OUTPUT);    // Set SDO to output
   digitalWrite(SDI, LOW);
@@ -98,11 +128,11 @@ void loop() {
   digitalWrite(SDO, LOW);
   digitalWrite(RST, LOW);  // 12v Off
   digitalWrite(VCC, HIGH); // Vcc On
-  delayMicroseconds(40);
+  delayMicroseconds(400);  // Ensure VCC has reached at least 1.1v before applying 12v to reset
   digitalWrite(RST, HIGH); // 12v On
   delayMicroseconds(10);
   pinMode(SDO, INPUT);     // Set SDO to input
-  delayMicroseconds(300);
+  delayMicroseconds(300);  // Ensure VCC has reached at least 4.5v before issuing instructions
 
   unsigned int sig = readSignature();
   Serial.print("Signature: ");
