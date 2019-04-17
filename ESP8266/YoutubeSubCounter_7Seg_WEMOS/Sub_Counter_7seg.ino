@@ -12,6 +12,13 @@
 //
 //    LedControl usage:     http://playground.arduino.cc/Main/LedControl
 //
+// Tested using:
+//    Arduino IDE        v1.8.9
+//    esp8266 board file v2.4.2
+//    YoutubeAPI         v1.1.0
+//    ArduinoJson        v5.13.4
+//    LedControl         v1.0.6
+//
 // Gadget Reboot
 
 #include <ESP8266WiFi.h>
