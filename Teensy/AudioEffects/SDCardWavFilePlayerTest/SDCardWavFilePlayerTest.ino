@@ -129,7 +129,7 @@ void setup() {
   if (!(SD.begin(SDCARD_CS_PIN))) {
     // stop here, but print a message
     Serial.println("Unable to access the SD card.  Program halted.");
-    while (1) {}
+    while (1);
   }
   Serial.println("done.");
   Serial.println("Waiting for control input...");
