@@ -1,6 +1,8 @@
 // Modified by Gadget Reboot for a series of demos/tests of audio
 // playback and processing.
 //
+// Tested using Teensyduino Version 1.46 and Arduino IDE Version 1.8.9
+//
 // Flange effect based on Teensy Examples sketch in Arduino.
 //
 // This example code is in the public domain.
@@ -47,6 +49,7 @@ AudioControlSGTL5000     audioShield;
 // buttons and potentiometers
 #define pot0             A13
 #define pot1             A12
+#define pot2             A14
 #define button0          30
 #define button1          29
 #define button2          28
@@ -118,6 +121,16 @@ void setup() {
   audioShield.volume(0.5);
   Serial.println("done.");
 
+  mixer1.gain(0, 0.5);
+  mixer1.gain(1, 0.5);
+  mixer1.gain(2, 0);
+  mixer1.gain(3, 0);
+
+  mixer2.gain(0, 0.5);
+  mixer2.gain(1, 0.5);
+  mixer2.gain(2, 0);
+  mixer2.gain(3, 0);
+
   Serial.print("init SD card...");
   SPI.setMOSI(SDCARD_MOSI_PIN);
   SPI.setSCK(SDCARD_SCK_PIN);
@@ -168,15 +181,17 @@ void playFile(const char *filename)
 
 void loop() {
 
-  // auto select next wav file if current file finishes playing
-  // and if playback is enabled
-  if ((!(playWav1.isPlaying())) && (wavIsPlaying)) {
+  /*
+    // auto select next wav file if current file finishes playing
+    // and if playback is enabled
+    if ((!(playWav1.isPlaying())) && (wavIsPlaying)) {
     wavNum++;
     if (wavNum > 6) {
       wavNum = 0;
     }
     playFile(wavFiles[wavNum]);
-  }
+    }
+  */
 
   // update the button debounce status so falling edges
   // can be detected and processed
@@ -242,7 +257,11 @@ void loop() {
   int vol = analogRead(pot0);
   if (vol != masterVolume) {
     masterVolume = vol;
-    audioShield.volume((float)vol / 1023);
+    audioShield.volume((float)vol / 1023);  // audio shield headphone out volume (optional)
+    mixer1.gain(0, (float)vol / 1023);      // software mixer input channel volume
+    mixer1.gain(1, (float)vol / 1023);
+    mixer2.gain(0, (float)vol / 1023);
+    mixer2.gain(1, (float)vol / 1023);
   }
 
   // read Flange control pot and change parameter if required
