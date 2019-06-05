@@ -5,6 +5,11 @@
 // - DHT Sensor Library: https://github.com/adafruit/DHT-sensor-library
 // - Adafruit Unified Sensor Lib: https://github.com/adafruit/Adafruit_Sensor
 //
+// Tested with Arduino IDE v1.8.9 
+//             Adafruit Unified Sensor v1.0.3
+//             DHT Sensor Library v1.3.4
+//             HD44780 v1.0.1
+//
 //  Gadget Reboot
 
 #include "DHT.h"
